@@ -24,17 +24,26 @@
     <% if(admin) { %>
     <a href="/admin/logout">Logout</a>
     
-    <form action="/addnew" method="post">
+    <form action="/admin/addnew" method="post">
         <label for="">Url</label>
         <input type="text" name="url" id="" placeholder="https://" required>
         <label for="">Slug</label>
         <input type="text" name="slug" id="">
-        <input type="submit" value="Submit">
+        <input type="submit" value="AddNew">
     </form>
 
     <% data.forEach(e => { %>
-        <%= e.url %>
-        <a href="<%= site_url%>/<%= e.slug %>">Go To</a>
+        <form action="/admin/updateanddelete" method="post">
+            <input type="text" name="id" value="<%= e.url %>" hidden>
+            <input type="text" name="url" value="<%= e.url %>" disabled>
+            <label for=""><%= site_url%>/</label>
+            <input type="text" name="slug" value="<%= e.slug %>">
+            <a href="<%= site_url%>/<%= e.slug %>">Go To</a>
+            <input type="submit" name="submit" value="Update">
+            <input type="submit" name="submit" value="Delete">
+        </form>
+        
+        
     <% }); %>
 
     <% }; %>

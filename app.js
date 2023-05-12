@@ -12,6 +12,7 @@ const logout = require('./routes/logout')
 mongoose.connect(process.env.MONGO_URL , {useNewUrlParser: true, useUnifiedTopology: true})
 const storeUrl = require('./models/storeUrl')
 const findUrl = require('./models/redirectUrl')
+const updateAnddeleteUrl = require('./models/updateAnddeleteUrl')
 
 
 app.use(cors())
@@ -28,7 +29,8 @@ app.get('/', home)
 app.get('/admin',dash)
 app.post('/admin/login',login)
 app.get('/admin/logout',logout)
-app.post('/addnew', storeUrl)
+app.post('/admin/addnew', storeUrl)
+app.post('/admin/updateanddelete', updateAnddeleteUrl)
 app.get('/:path',findUrl)
 
 app.listen(80, function () {

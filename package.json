@@ -1,4 +1,8 @@
 {
+  "name": "redirect-app",
+  "version": "1.0.0",
+  "description": "A simple redirect link",
+  "main": "index.js",
   "scripts": {
     "start": " node index.js"
   },

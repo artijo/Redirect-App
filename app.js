@@ -2,13 +2,14 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const sessions = require('express-session');
+require('dotenv').config()
 const mongoose = require('mongoose');
 
 const home = require('./routes/home')
 const dash = require('./routes/dash')
 const login = require('./routes/login')
 const logout = require('./routes/logout')
-mongoose.connect('mongodb+srv://artijo:w8AZPv8kVxqcASuo@redirectapp.t6xzubf.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.MONGO_URL , {useNewUrlParser: true, useUnifiedTopology: true})
 const storeUrl = require('./models/storeUrl')
 const findUrl = require('./models/redirectUrl')
 

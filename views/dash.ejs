@@ -34,7 +34,7 @@
 
     <% data.forEach(e => { %>
         <%= e.url %>
-        <%= e.slug %>
+        <a href="<%= site_url%>/<%= e.slug %>">Go To</a>
     <% }); %>
 
     <% }; %>

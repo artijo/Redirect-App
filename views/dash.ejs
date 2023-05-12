@@ -4,16 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dash</title>
 </head>
 <body>
     <h1>All Url</h1>
+
+    <% if (!admin) { %>
+
+        <form action="/admin/login" method="post">
+            <label for="">Username: </label>
+            <input type="text" name="user">
+            <label for="">Password: </label>
+            <input type="password" name="password" id="">
+            <input type="submit">
+        </form>
+
+    <% } %>
+    
+    <% if(admin) { %>
+    <a href="/admin/logout">Logout</a>
+    
     <form action="/addnew" method="post">
         <label for="">Url</label>
-        <input type="text" name="url" id="">
+        <input type="text" name="url" id="" placeholder="https://" required>
         <label for="">Slug</label>
         <input type="text" name="slug" id="">
         <input type="submit" value="Submit">
     </form>
+
+    <% data.forEach(e => { %>
+        <%= e.url %>
+        <%= e.slug %>
+    <% }); %>
+
+    <% }; %>
 </body>
 </html>

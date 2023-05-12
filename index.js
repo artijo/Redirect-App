@@ -36,5 +36,3 @@ app.get('/:path',findUrl)
 app.listen(8080, function () {
   console.log('CORS-enabled web server listening on port 80')
 })
-
-module.exports = app
